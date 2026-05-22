@@ -1,0 +1,46 @@
+{% extends "music/base.html" %}
+{% block content %}
+<h1>Add song</h1>
+
+{% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li>
+            {{ message }}
+        </li>
+      {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="search">
+    <input type="text" name="q" value="{{ query }}" placeholder="Search..." size="40">
+    <button type="submit">Search</button>
+</form>
+
+
+{% if results %}
+<table>
+    <thead>
+        <tr><th>Title</th>Channel</tr>
+    </thead>
+    <body>
+        {% for r in results %}
+        <tr>
+            <td>{{ r.title }}</td>
+            <td>{{ r.uploader }}</td>
+            <td>
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="download">
+                    <input type="hidden" name="url" value="{{ r.url }}">
+                    <button type="submit">Download</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </body>
+</table>
+{% endif %}
+{% endblock %}

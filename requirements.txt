@@ -1,1 +1,3 @@
 yt-dlp
+pygpod @ git+https://github.com/Bionded/pygpod.git
+django

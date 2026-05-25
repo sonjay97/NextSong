@@ -114,6 +114,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [BASE_DIR / 'music' / 'static']
+
 # Temp files for YouTube downloads
 TMP_DOWNLOADS = BASE_DIR / 'tmp' / 'downloads'
 

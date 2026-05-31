@@ -17,13 +17,15 @@ async def load_library():
 
     db = pygpod.Database(MOUNT)
 
-    render_tracks(tracks_to_json())
+    tracks_json = tracks_to_json()
 
-    track_count = len(json.loads(tracks_to_json()))
+    render_tracks(tracks_json)
 
-    label = "track" if count == 1 else "tracks"
+    track_count = len(json.loads(tracks_json))
 
-    set_status(f"iPod Connected ({track_count} {label}) Read")
+    label = "track" if track_count == 1 else "tracks"
+
+    set_status(f"iPod Connected ({track_count} {label})")
 
 
 
@@ -169,7 +171,7 @@ async def connect_ipod():
 
         return
     
-    set_status("Mounting iPod (pause.)")
+    set_status("Mounting iPod (kinky.)")
 
     try:
 
@@ -186,7 +188,7 @@ async def connect_ipod():
 
         return 
     
-    set_status("reading yo iTunes library...")
+    set_status("Mounted. parsing yo iTunes library...")
 
     try: 
         await load_library()

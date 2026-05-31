@@ -14,9 +14,17 @@
   <nav>
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'add' %}">Add</a>
+
     <button type="button" id="connect-ipod" disabled>Connect iPod</button>
-    <span id="ipod-status">Loading…</span>
-    <span id="pyodide-status"></span>
+
+    <div class="connection-status">
+
+      <div id="ipod-status">Loading…</div>
+      
+      <div id="pyodide-status"></div>
+
+    </div>
+
   </nav>
   {% block content %}{% endblock %}
   <script

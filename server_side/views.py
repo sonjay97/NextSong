@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 
-from . import youtube
+from .services.youtube_search_and_download import search, download_mp3
 
 def add_song(request):
 
@@ -14,7 +14,7 @@ def add_song(request):
 
         if action == "search" and query:
             try:
-                results = youtube.search(query)
+                results = search(query)
             except Exception as e:
                 messages.error(request, f"Search failed {e}")
 
@@ -22,7 +22,7 @@ def add_song(request):
             url = request.POST.get("url")
             if url: 
                 try:
-                    meta = youtube.download_mp3(url)
+                    meta = download_mp3(url)
 
                     messages.success(
                         request,
@@ -31,7 +31,11 @@ def add_song(request):
                 except Exception as e:
                     messages.error(request, f"Download Failed {e}")
 
-    return render(request, 'music/add.html', {
+    return render(request, 'add_song_section.html', {
         "results": results,
         "query": query,
     })
+
+
+def home(request):
+    return render(request, 'home_page.html')

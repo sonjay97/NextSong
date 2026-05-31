@@ -4,7 +4,7 @@ Next Song please
 # What is it
 This is something I made to get free music from youtube. Basically another one of those yt-dlp GUI clones.
 BUT mine is different because its specifically made for the ipod classic. 
-And be sure to note that its not just a file manager for your ipod classic.
+
 
 Next song aims to alleviate the pain of finding a song on youtube, converting to mp3, getting the right meta data from music brainz picard, moving to itunes/apple music in order to cache the correct album artwork cover, and then finally loading into da ipod. 
 

@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'music'
+    'server_side'
 ]
 
 MIDDLEWARE = [
@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'nextsong.urls'
+ROOT_URLCONF = 'django_config.urls'
 
 TEMPLATES = [
     {
@@ -64,7 +64,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'nextsong.wsgi.application'
+WSGI_APPLICATION = 'django_config.wsgi.application'
 
 
 # Database
@@ -112,9 +112,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [BASE_DIR / 'music' / 'static']
+STATICFILES_DIRS = [BASE_DIR / 'server_side' / 'browser_side']
 
 # Temp files for YouTube downloads
 TMP_DOWNLOADS = BASE_DIR / 'tmp' / 'downloads'
